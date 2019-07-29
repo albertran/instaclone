@@ -36,6 +36,11 @@ gem 'paperclip', '4.3.6'
 #Use simple_form for form building
 gem 'simple_form'
 
+#Use bootstrap to style our website w css and sass stuff
+gem 'bootstrap-sass', '~> 3.3.5'
+gem 'sassc-rails', '>= 2.1.0'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

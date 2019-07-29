@@ -1,0 +1,19 @@
+<!-- This is where you can view or 'show' specific posts (just one) as opposed to all in the home page -->
+<div class="posts-wrapper row">
+  <div class="post">
+    <div class="post-head">
+      <div class="name">
+        Albert Tran
+      </div>
+    </div>
+    <div class="image center-block">
+      <%= image_tag @post.image.url(:medium) %>
+    </div>
+    <p class="caption">
+      <%= @post.caption %>
+    </p>
+    <div class="text-center">
+      <%= link_to "Cancel", posts_path %>
+    </div>
+  </div>
+</div>
