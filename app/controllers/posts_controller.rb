@@ -12,6 +12,17 @@ class PostsController < ApplicationController # same name as file, inherits from
         redirect_to posts_path # after go back to post page
     end
     
+    def edit #edit function allows you to edit your post by first grabbing the post you wanted to edit by id
+        @post = Post.find(params[:id])
+    end
+    
+    def update
+        @post = Post.find(params[:id]) #get the post
+        @post.update(post_params) #call update on the post given parameters
+        redirect_to(post_path(@post)) #go back to post to see changes made
+    
+    end
+    
     def show #show function to view a particular post (think read from CRUD)
         @post = Post.find(params[:id]) 
     end
