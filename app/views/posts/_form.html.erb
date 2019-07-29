@@ -1,0 +1,16 @@
+<!-- use embedded ruby to write a simple form for our new image page, taken from simple_form --> 
+<div class="form-wrapper">
+  <%= simple_form_for @post, html: { class: 'form-horizontal', multipart: true } do |f| %>
+    <div class="form-group">
+      <%= f.input :image %>
+    </div>
+    <div class="form-group text-center">
+      <%= f.input :caption %>
+    </div>
+    <div class="form-group text-center">
+      <%= f.button :submit, class: 'btn-success' %>
+    </div>
+  <% end %>
+</div>
+
+<!-- this form is to clean up repetition (DRY = DONT REPEAT YOURSELF) -->
