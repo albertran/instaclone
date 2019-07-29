@@ -27,6 +27,12 @@ class PostsController < ApplicationController # same name as file, inherits from
         @post = Post.find(params[:id]) 
     end
     
+    def destroy #destroy function deletes a post
+        @post = Post.find(params[:id]) #get the post to delete
+        @post.destroy #call destroy on the post
+        redirect_to posts_path #go back to the root index
+    end
+    
     private
         def post_params #private function to require parameters for posts
             params.require(:post).permit(:image, :caption)
