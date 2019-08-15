@@ -1,21 +1,5 @@
 <!-- this is the index.html page aka home page of website -->
-<div class = "posts-wrapper row"> 
-    <% @posts.each do |post| %> <!-- here i loop through each post in the posts instance variable (i can call it cause its under the index function) -->
-        <div class = "post" >
-            <div class = "post-head">
-                <div class = "name">
-                    Albert Tran
-                </div>
-            </div>
-            <div class = "image center-block">
-                <%= link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post) %>
-            </div>
-            <p class = "caption">
-                <%=post.caption%>
-            </p>
-        </div>
-    <% end %>
-</div>
+<% @posts.each do |post| %>
+  <%= render 'post', post: post %>
+<% end %>
 
-
-               

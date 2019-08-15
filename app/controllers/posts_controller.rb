@@ -1,16 +1,21 @@
 class PostsController < ApplicationController # same name as file, inherits from application controller
+    before_action :authenticate_user! # check if a user is logged in
     before_action :set_post, only: [:show, :edit, :update, :destroy]
+    before_action :owned_post, only: [:edit, :update, :destroy]
+
 
     def index #empty function call for index page
         @posts = Post.all #this saves all posts into the instance variable
     end
     
     def new #function call to create new post
-        @post = Post.new # instance variable using post new, post being post.rb in the models folder
+        @post = current_user.posts.build # instance variable using post new, post being post.rb in the models folder
     end
     
     def create #create function to create new post (think CRUD)
-        if @post = Post.create(post_params) # if post is successfully created
+        @post = current_user.posts.build(post_params)
+        
+        if @post.save # if post is successfully created
             flash[:success] = "Your post has been created!"
             redirect_to posts_path # after go back to post page
         else
@@ -53,6 +58,13 @@ class PostsController < ApplicationController # same name as file, inherits from
         def set_post
             @post = Post.find(params[:id])
         end
+        
+        def owned_post # redirect user to home page if they try to edit a post of another user
+            unless current_user == @post.user
+            flash[:alert] = "That post doesn't belong to you!"
+            redirect_to root_path
+        end
+end
 end
 
 #create

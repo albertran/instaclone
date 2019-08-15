@@ -40,6 +40,9 @@ gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sassc-rails', '>= 2.1.0'
 
+#Use devise for user authentication
+gem 'devise'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
