@@ -5,7 +5,7 @@ class PostsController < ApplicationController # same name as file, inherits from
 
 
     def index #empty function call for index page
-        @posts = Post.all #this saves all posts into the instance variable
+        @posts = Post.all.order('created_at DESC').page params[:page] #this saves all posts into the instance variable
     end
     
     def new #function call to create new post

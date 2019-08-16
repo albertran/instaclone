@@ -43,6 +43,11 @@ gem 'sassc-rails', '>= 2.1.0'
 #Use devise for user authentication
 gem 'devise'
 
+#Use kaminari for load more button
+gem 'kaminari', '~> 0.16.3'
+
+# new game
+gem 'jquery-turbolinks'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

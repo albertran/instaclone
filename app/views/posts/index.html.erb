@@ -1,5 +1,6 @@
-<!-- this is the index.html page aka home page of website -->
-<% @posts.each do |post| %>
-  <%= render 'post', post: post %>
-<% end %>
-
+<div id="posts">
+  <%= render 'posts' %>
+</div>
+<div class="text-center" id="paginator">
+  <%= link_to_next_page @posts, 'LOAD MORE', remote: true, id: 'load_more' %>
+</div>
