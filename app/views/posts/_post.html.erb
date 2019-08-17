@@ -1,9 +1,10 @@
 <div class="posts-wrapper">
   <div class="post">
     <div class="post-head">
-      <div class="thumb-img"></div>
+      <div class="thumb-img">
+      </div>
       <div class="user-name">
-        <%= post.user.user_name %>
+      <%= link_to post.user.user_name, profile_path(post.user.user_name) %>
       </div>
     </div>
     <div class="time-ago">
@@ -15,9 +16,9 @@
     <div class="post-bottom">
       <div class="caption">
         <div class="caption-content">
-          <div class="user-name">
-            <%= post.user.user_name %>
-          </div>
+        <div class="user-name">
+          <%= link_to post.user.user_name, profile_path(post.user.user_name) %>
+        </div>
           <%= post.caption %>
         </div>
         <div class="comments" id="comments_<%= post.id %>">
@@ -45,3 +46,4 @@
     </div>
   </div>
 </div>
+

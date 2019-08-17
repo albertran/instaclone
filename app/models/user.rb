@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy # user can have many comments, if user is deleted, so are their comments
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_attached_file :avatar, styles: { medium: '152x152#' }
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 end
