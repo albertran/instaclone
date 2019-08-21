@@ -46,8 +46,11 @@ gem 'devise'
 #Use kaminari for load more button
 gem 'kaminari', '~> 0.16.3'
 
-# new game
+# new gem
 gem 'jquery-turbolinks'
+
+#Use gem for clicking like button
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

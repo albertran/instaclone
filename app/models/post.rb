@@ -1,5 +1,6 @@
 # this is the model of the page we will see from making a post, taken from benwalks tutorial
 class Post < ApplicationRecord
+    acts_as_votable
     validates :user_id, presence: true
     belongs_to :user
     has_many :comments, dependent: :destroy # posts can have many comments, if post is destroyed, so are the comments

@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :posts do #get all resource routes for posts (autocreates routes for us)
     resources :comments
+    member do
+      get 'like'
+    end
   end
   get ':user_name', to: 'profiles#show', as: :profile #GETting a route use the show action, refer to route as profile route
   get ':user_name/edit', to: 'profiles#edit', as: :edit_profile #GETing a route, use the edit action, refer to route as edit profile route
@@ -16,3 +19,4 @@ end
 
 
 #routes.rb handles routes or urls to get certain paths in your site
+

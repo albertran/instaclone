@@ -1,6 +1,6 @@
 class PostsController < ApplicationController # same name as file, inherits from application controller
     before_action :authenticate_user! # check if a user is logged in
-    before_action :set_post, only: [:show, :edit, :update, :destroy]
+    before_action :set_post, only: [:show, :edit, :update, :destroy, :like]
     before_action :owned_post, only: [:edit, :update, :destroy]
 
 
@@ -47,6 +47,15 @@ class PostsController < ApplicationController # same name as file, inherits from
         else
             flash[:alert] = "Could not delete, your post is on here forever.."
             redirect_to root_path
+        end
+    end
+    
+    def like
+        if @post.liked_by current_user
+            respond_to do |format|
+                format.html { redirect_to :back }
+                format.js
+            end
         end
     end
     
