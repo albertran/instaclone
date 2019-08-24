@@ -1,5 +1,6 @@
 # this is the model of the page we will see from making a post, taken from benwalks tutorial
 class Post < ApplicationRecord
+    has_many :notifications, dependent: :destroy
     acts_as_votable
     validates :user_id, presence: true
     belongs_to :user
