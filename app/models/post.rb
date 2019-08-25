@@ -1,5 +1,6 @@
 # this is the model of the page we will see from making a post, taken from benwalks tutorial
 class Post < ApplicationRecord
+    scope :of_followed_users, -> (following_users) { where user_id: following_users }
     has_many :notifications, dependent: :destroy
     acts_as_votable
     validates :user_id, presence: true
