@@ -44,7 +44,7 @@ gem 'sassc-rails', '>= 2.1.0'
 gem 'devise'
 
 #Use kaminari for load more button
-gem 'kaminari', '~> 0.16.3'
+gem 'kaminari', '~> 1.2.1'
 
 # new gem
 gem 'jquery-turbolinks'
